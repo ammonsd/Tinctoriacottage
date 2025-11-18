@@ -1,0 +1,177 @@
+========================================
+CUSTOM DOMAIN SETUP FOR S3 WEBSITE
+tinctoria.com → S3 Static Website
+========================================
+
+PREREQUISITES:
+- Your domain registrar login (where you bought tinctoria.com)
+- AWS account access
+- Existing S3 bucket with website hosting enabled
+
+========================================
+OPTION 1: Using AWS Route 53 (Recommended)
+========================================
+
+STEP 1: Create Correctly Named S3 Buckets
+------------------------------------------
+You need TWO buckets with exact domain names:
+
+Bucket 1: tinctoria.com (main bucket)
+  - Already created with your website files
+  - Static website hosting enabled
+  - Index document: index.html
+
+Bucket 2: www.tinctoria.com (redirect bucket)
+  - Create new bucket
+  - Enable static website hosting
+  - Choose "Redirect requests" option
+  - Target bucket: tinctoria.com
+  - Protocol: http
+
+STEP 2: Transfer Domain to Route 53 (or use existing DNS)
+------------------------------------------
+If domain is NOT at Route 53:
+1. Go to Route 53 console: https://console.aws.amazon.com/route53/
+2. Click "Hosted zones" → "Create hosted zone"
+3. Domain name: tinctoria.com
+4. Type: Public hosted zone
+5. Click "Create hosted zone"
+6. NOTE the 4 nameserver addresses (ns-xxxx.awsdns-xx.com)
+
+STEP 3: Update Domain Nameservers
+------------------------------------------
+At your domain registrar (GoDaddy, Namecheap, etc.):
+1. Log in to your domain registrar
+2. Find DNS/Nameserver settings for tinctoria.com
+3. Replace existing nameservers with the 4 Route 53 nameservers
+4. Save changes (can take 24-48 hours to propagate)
+
+STEP 4: Create Route 53 DNS Records
+------------------------------------------
+In Route 53 hosted zone for tinctoria.com:
+
+Record 1 (Root domain):
+  - Click "Create record"
+  - Record name: (leave blank)
+  - Record type: A
+  - Toggle "Alias" ON
+  - Route traffic to: "Alias to S3 website endpoint"
+  - Region: (select your bucket's region)
+  - S3 endpoint: tinctoria.com (should appear in dropdown)
+  - Click "Create records"
+
+Record 2 (www subdomain):
+  - Click "Create record"
+  - Record name: www
+  - Record type: A
+  - Toggle "Alias" ON
+  - Route traffic to: "Alias to S3 website endpoint"
+  - Region: (select your bucket's region)
+  - S3 endpoint: www.tinctoria.com (should appear in dropdown)
+  - Click "Create records"
+
+========================================
+OPTION 2: Using Existing DNS Provider
+========================================
+
+If you want to keep your domain at current registrar:
+
+STEP 1: Get S3 Website Endpoint
+------------------------------------------
+1. Go to S3 console
+2. Select your bucket
+3. Go to Properties → Static website hosting
+4. Copy the "Bucket website endpoint" URL
+   Example: tinctoria.com.s3-website-us-east-1.amazonaws.com
+
+STEP 2: Update DNS at Your Registrar
+------------------------------------------
+At your domain registrar's DNS settings:
+
+For Root Domain (tinctoria.com):
+  - Type: CNAME or ALIAS (if supported)
+  - Name: @ (or leave blank)
+  - Value: [your-bucket-endpoint from Step 1]
+  - TTL: 3600
+
+For WWW Subdomain (www.tinctoria.com):
+  - Type: CNAME
+  - Name: www
+  - Value: [your-bucket-endpoint from Step 1]
+  - TTL: 3600
+
+NOTE: Some registrars don't support CNAME at root. If that's the case:
+  - Use A record pointing to S3 IP (not recommended, can change)
+  - OR use Route 53 (Option 1 above)
+
+========================================
+OPTIONAL: ADD HTTPS (SSL/TLS)
+========================================
+
+To enable HTTPS (https://tinctoria.com):
+
+REQUIREMENTS:
+- Must use CloudFront (AWS CDN)
+- Must use Route 53 for DNS
+- Free SSL certificate via AWS Certificate Manager
+
+Steps:
+1. Request SSL certificate in AWS Certificate Manager (us-east-1 region)
+2. Create CloudFront distribution pointing to S3 bucket
+3. Attach SSL certificate to CloudFront
+4. Update Route 53 A records to point to CloudFront (not S3)
+
+(This is more advanced - let me know if you want detailed steps)
+
+========================================
+VERIFICATION
+========================================
+
+After DNS propagates (can take 2-48 hours):
+
+1. Test in browser:
+   - http://tinctoria.com
+   - http://www.tinctoria.com
+
+2. Check DNS propagation:
+   - Visit: https://www.whatsmydns.net/
+   - Enter: tinctoria.com
+   - Check worldwide propagation
+
+3. Troubleshooting:
+   - Clear browser cache
+   - Try incognito/private mode
+   - Use different DNS: 8.8.8.8 (Google DNS)
+
+========================================
+IMPORTANT NOTES
+========================================
+
+1. S3 bucket name MUST exactly match domain name
+   - If using www.tinctoria.com → bucket must be www.tinctoria.com
+   - If using tinctoria.com → bucket must be tinctoria.com
+
+2. DNS propagation takes time
+   - Changes can take 2-48 hours
+   - Be patient!
+
+3. Existing bucket?
+   - If your current bucket has a different name, you'll need to:
+     a) Create new bucket with exact domain name
+     b) Copy all files to new bucket
+     c) Configure new bucket for static hosting
+     d) Update bucket policy with new bucket name
+
+4. Cost:
+   - Route 53 hosted zone: $0.50/month
+   - DNS queries: $0.40 per million queries
+   - S3 hosting remains cheap (pennies/month)
+
+========================================
+NEED HELP?
+========================================
+
+If you need assistance:
+1. Let me know your current domain registrar
+2. Tell me your S3 bucket name
+3. I can provide more specific instructions

@@ -1,0 +1,18 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/items_update.asp?T=I&C=2" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Add New Inventory</b>
+     </form>
+     <form action="../cgi-bin/items_sel.asp?T=I&P=L&C=2" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Inventory Maintenance</b>
+     </form>
+     <form action="../cgi-bin/items_sel.asp?T=I&P=L&PRT=Y&C=2" method="POST">
+     <input type="Submit" value="Go To">
+     <b>List Inventory for Printing</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/inventory_webpg_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Web Pages</b>
+     </form>
+     </td></tr>

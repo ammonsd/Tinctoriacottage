@@ -1,0 +1,14 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/logon_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>User ID Maintenance</b>
+     </form>
+     <form action="../cgi-bin/logon_group_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Logon Groups Maintenance</b>
+     </form>
+     <form action="../cgi-bin/company_setup_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Company Configuration</b>
+     </form>
+     </td></tr>

@@ -1,0 +1,37 @@
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+Sub Application_OnStart
+End Sub
+Sub Session_OnStart
+
+   '=== Start Address Directory Settings ===
+
+       Application("HOMEDIR") = "www.tinctoriacottage.com/new"
+       Application("BGIMG") = "/dir/_themes/poetextb.gif"
+       Application("BGCLR") = "#FFFFCC"
+       Application("STMP") = "mail.tinctoriacottage.com"
+       Application("FILEDIR") = "cgi-bin"
+       Application("UPLDIR") = "fpdb"
+       Application("INCLDIR") = "includes"
+       APPLICATION("PICDIR") = "photos"
+       Application("PGMDIR") = "dir"
+       Application("SUPPORT_NAME") = "Technical Support"
+       Application("SUPPORT_MAIL") = "fci@tinctoriacottage.com"
+       Application("MAX_LOGON_INACTIVITY") = 90
+       Application("DBNAME") = "tinctoria_cottage.mdb"
+       Application("SECURTBL") = "Security"
+       Application("TEXTTBL") = "Generic_Text"
+       Application("NBRDTETBL") = "Generic_Nbr_Dte"
+       Application("MEMOTBL") = "Generic_Memo"
+       Application("DIRTBL") = ""
+       Application("MBRTBL") = "Members"
+       Application("BOOKTBL") = "Books"
+       Application("EnableSrch") = "Y"
+       Application("TnPics") = "N"
+       Application("BOOKPG") = 25
+       APPLICATION("BOOKLOGON") = "N"
+
+   '=== End Address Directory Settings ===
+
+End Sub
+
+</SCRIPT>

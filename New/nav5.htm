@@ -1,0 +1,261 @@
+<!--To put this html into an existing HTML document, you must copy the JavaScript and-->
+<!--paste it in a specific location within the destination HTML document. You must then copy-->
+<!--and paste the table in a different location.-->
+
+<html>
+
+<head>
+
+<title>nav5.gif</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="Fireworks Splice HTML">
+
+<!-- Fireworks 2.02  Generic target.
+    Created Mon Sep 27 08:52:23 GMT-0400 1999 -->
+
+<!-------------------- BEGIN COPYING THE JAVASCRIPT SECTION HERE ------------------->
+
+<script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+if (document.images) {
+nav5_r1_c1_F1 = new Image(47,27); nav5_r1_c1_F1.src = "/Graphics/nav5_r1_c1.gif";
+nav5_r1_c1_F2 = new Image(47,27); nav5_r1_c1_F2.src = "/Graphics/nav5_r1_c1_F2.gif";
+nav5_r1_c1_F3 = new Image(47,27); nav5_r1_c1_F3.src = "/Graphics/nav5_r1_c1_F3.gif";
+nav5_r1_c2_F2 = new Image(92,27); nav5_r1_c2_F2.src = "/Graphics/nav5_r1_c2_F2.gif";
+nav5_r1_c2_F3 = new Image(92,27); nav5_r1_c2_F3.src = "/Graphics/nav5_r1_c2_F3.gif";
+nav5_r1_c3_F1 = new Image(95,27); nav5_r1_c3_F1.src = "/Graphics/nav5_r1_c3.gif";
+nav5_r1_c3_F2 = new Image(95,27); nav5_r1_c3_F2.src = "/Graphics/nav5_r1_c3_F2.gif";
+nav5_r1_c3_F3 = new Image(95,27); nav5_r1_c3_F3.src = "/Graphics/nav5_r1_c3_F3.gif";
+nav5_r1_c4_F1 = new Image(109,27); nav5_r1_c4_F1.src = "/Graphics/nav5_r1_c4.gif";
+nav5_r1_c4_F2 = new Image(109,27); nav5_r1_c4_F2.src = "/Graphics/nav5_r1_c4_F2.gif";
+nav5_r1_c4_F3 = new Image(109,27); nav5_r1_c4_F3.src = "/Graphics/nav5_r1_c4_F3.gif";
+nav5_r1_c5_F1 = new Image(86,27); nav5_r1_c5_F1.src = "/Graphics/nav5_r1_c5.gif";
+nav5_r1_c5_F2 = new Image(86,27); nav5_r1_c5_F2.src = "/Graphics/nav5_r1_c5_F2.gif";
+nav5_r1_c5_F3 = new Image(86,27); nav5_r1_c5_F3.src = "/Graphics/nav5_r1_c2_F2.gif";
+nav5_r1_c5_F3 = new Image(86,27); nav5_r1_c5_F3.src = "/Graphics/nav5_r1_c5_F3.gif";
+}
+
+/* Function that swaps images. */
+
+function di20(id, newSrc) {
+    var theImage = FWFindImage(document, id, 0);
+    if (theImage) {
+        theImage.src = newSrc;
+    }
+}
+
+/* Functions that track and set toggle group button states. */
+
+function FWFindImage(doc, name, j) {
+    var theImage = false;
+    if (doc.images) {
+        theImage = doc.images[name];
+    }
+    if (theImage) {
+        return theImage;
+    }
+    if (doc.layers) {
+        for (j = 0; j < doc.layers.length; j++) {
+            theImage = FWFindImage(doc.layers[j].document, name, 0);
+            if (theImage) {
+                return (theImage);
+            }
+        }
+    }
+    return (false);
+}
+
+
+function setCookie(name, value) {
+    document.cookie = name + "=" + escape(value);
+}
+
+function getCookie(Name) {
+    var search = Name + "=";
+    var retVal = "";
+    if (document.cookie.length > 0) {
+        offset = document.cookie.indexOf(search);
+        if (offset != -1) {
+            end = document.cookie.indexOf(";", offset);
+            offset += search.length;
+            if (end == -1) {
+                end = document.cookie.length;
+            }
+            retVal = unescape(document.cookie.substring(offset, end));
+        }
+    }
+    return (retVal);
+}
+
+function InitGrp(grp) {
+    var cmd = false;
+    if (getCookie) {
+        cmd = getCookie(grp);
+    }
+    if (cmd) {
+        eval("GrpDown(" + cmd + ")");
+        eval("GrpRestore(" + cmd + ")");
+    }
+}
+
+function FindGroup(grp, imageName) {
+    var img = FWFindImage(document, imageName, 0);
+    if (!img) {
+        return (false);
+    }
+    var docGroup = eval("document.FWG_" + grp);
+    if (!docGroup) {
+        docGroup = new Object();
+        eval("document.FWG_" + grp + " = docGroup");
+        docGroup.theImages = new Array();
+    }
+    if (img) {
+        var i;
+        for (i = 0; i < docGroup.theImages.length; i++) {
+            if (docGroup.theImages[i] == imageName) {
+                break;
+            }
+        }
+        docGroup.theImages[i] = imageName;
+        if (!img.atRestSrc) {
+            img.atRestSrc = img.src;
+            img.initialSrc = img.src;
+        }
+    }
+    return (docGroup);
+}
+
+function GrpDown(grp, imageName, downSrc, downOver) {
+    if (!downOver) {
+        downOver = downSrc;
+    }
+    var cmd = "'" + grp + "','" + imageName + "','" + downSrc + "','" + downOver + "'";
+    setCookie(grp, cmd);
+    var docGroup = FindGroup(grp, imageName, false);
+    if (!docGroup || !downSrc) {
+        return;
+    }
+    obj = FWFindImage(document, imageName, 0);
+    var theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg != obj) {
+                curImg.atRestSrc = curImg.initialSrc;
+                curImg.isDown = false;
+                obj.downOver = false;
+                curImg.src = curImg.initialSrc;
+            }
+        }
+    }
+    obj.atRestSrc = downSrc;
+    obj.downOver = downOver;
+    obj.src = downOver;
+    obj.isDown = true;
+}
+
+function GrpSwap(grp) {
+    var i, j = 0, newSrc, objName;
+    var docGroup = false;
+    for (i = 1; i < (GrpSwap.arguments.length - 1); i += 2) {
+        objName = GrpSwap.arguments[i];
+        newSrc = GrpSwap.arguments[i + 1];
+        docGroup = FindGroup(grp, objName);
+        if (!docGroup) {
+            continue;
+        }
+        obj = FWFindImage(document, objName, 0);
+        if (!obj) {
+            continue;
+        }
+        if (obj.isDown) {
+            if (obj.downOver) {
+                obj.src = obj.downOver;
+            }
+        } else {
+            obj.src = newSrc;
+            obj.atRestSrc = obj.initialSrc;
+        }
+        obj.skipMe = true;
+        j++;
+    }
+    if (!docGroup) {
+        return;
+    }
+    theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg.atRestSrc && !curImg.skipMe) {
+                curImg.src = curImg.atRestSrc;
+            }
+            curImg.skipMe = false;
+        }
+    }
+}
+
+function GrpRestore(grp) {
+    var docGroup = eval("document.FWG_" + grp);
+    if (!docGroup) {
+        return;
+    }
+    theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg.atRestSrc) {
+                curImg.src = curImg.atRestSrc;
+            }
+        }
+    }
+}
+
+// stop hiding -->
+</script>
+
+<!-------------------------- STOP COPYING THE JAVASCRIPT HERE -------------------------->
+
+</head>
+
+<body bgcolor="#ffffcc" onload="InitGrp('FwSimpleGroup');">
+
+<!--The following section is an HTML table which reassembles the sliced image in a browser.-->
+<!--Copy the table section including the opening and closing table tags, and paste the data where-->
+<!--you want the reassembled image to appear in the destination document. -->
+
+<!-------------------------- BEGIN COPYING THE TABLE HERE ---------------------------->
+
+<!-- Image with table -->
+
+<table border="0" cellpadding="0" cellspacing="0" width="429">
+
+  <tr><!-- Shim row, height 1. -->
+   <td><img src="/Graphics/shim.gif" width="47" height="1" border="0"></td>
+   <td><img src="/Graphics/shim.gif" width="92" height="1" border="0"></td>
+   <td><img src="/Graphics/shim.gif" width="95" height="1" border="0"></td>
+   <td><img src="/Graphics/shim.gif" width="109" height="1" border="0"></td>
+   <td><img src="/Graphics/shim.gif" width="86" height="1" border="0"></td>
+   <td><img src="/Graphics/shim.gif" width="1" height="1" border="0"></td>
+  </tr>
+
+  <tr><!-- row 1 -->
+   <td><a href="#" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c1','/Graphics/nav5_r1_c1_F2.gif');"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c1','/Graphics/nav5_r1_c1_F3.gif','/Graphics/nav5_r1_c1_F3.gif');" ><img name="nav5_r1_c1" src="/Graphics/nav5_r1_c1.gif" width="47" height="27" border="0"></a></td>
+   <td><a href="#" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c3','/Graphics/nav5_r1_c3_F2.gif');"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c3','/Graphics/nav5_r1_c3_F3.gif','/Graphics/nav5_r1_c3_F3.gif');" ><img name="nav5_r1_c3" src="/Graphics/nav5_r1_c3.gif" width="95" height="27" border="0"></a></td>
+   <td><a href="#" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c4','/Graphics/nav5_r1_c4_F2.gif');"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c4','/Graphics/nav5_r1_c4_F3.gif','/Graphics/nav5_r1_c4_F3.gif');" ><img name="nav5_r1_c4" src="/Graphics/nav5_r1_c4.gif" width="109" height="27" border="0"></a></td>
+   <td><a href="#" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c5','/Graphics/nav5_r1_c5_F2.gif');"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c5','/Graphics/nav5_r1_c5_F3.gif','/Graphics/nav5_r1_c5_F3.gif');" ><img name="nav5_r1_c5" src="/Graphics/nav5_r1_c5.gif" width="86" height="27" border="0"></a></td>
+   <td><img src="/Graphics/shim.gif" width="1" height="27" border="0"></td>
+  </tr>
+
+</table>
+
+<!--   This table was automatically created with Macromedia Fireworks 2.0   -->
+<!--   http://www.macromedia.com   -->
+
+<!--------------------------- STOP COPYING THE TABLE HERE --------------------------->
+
+</body>
+
+</html>
+

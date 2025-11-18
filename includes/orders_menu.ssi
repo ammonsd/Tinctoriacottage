@@ -1,0 +1,14 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/orders_sel.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Order Maintenance</b>
+     </form>
+     <form action="../cgi-bin/orders_sel.asp?P=E" method="POST">
+     <input type="Submit" value="Go To">
+     <b>e-Mail Customer Order Status</b>
+     </form>
+     <form action="../cgi-bin/orders_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Display Order for Re-Print</b>
+     </form>
+     </td></tr>

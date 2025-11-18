@@ -1,0 +1,10 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/linkspg_desc_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Links Page Maintenance (Desc)</b>
+     </form>
+     <form action="../cgi-bin/linkspg_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Links Page Maintenance (w/o Desc)</b>
+     </form>
+     </td></tr>

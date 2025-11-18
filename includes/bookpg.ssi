@@ -1,0 +1,16 @@
+<form action="../cgi-bin/order_form.asp" method="POST">
+<input type="Hidden" name="WebPg" value="bookpg.shtml">
+ <p>&nbsp;</p>
+<a name="1"></a>
+<p><img src ="../Photos/TextilePrintingBlock.jpg"></p>
+<p><font size=4><b>Vintage Textile Printing Block</b></font> <br>
+Wood base textile printing block, 11" long, 2 _" wide, 2" deep. Metal embedded design. Design repeats. Good condition, some age cracks in wood base.<br>
+Product Code: VT1001<br>
+Quantity Available: 1<br>
+Price: US $25.00 each
+<br>
+<input type="Hidden" name="Item1" value="VT1001">
+<input type="Checkbox" name="Qty1">
+<font size="-1"><b>Add Item to Order</b></font>
+</p>
+<input type="Hidden" name="NbrNewItems" value="1">

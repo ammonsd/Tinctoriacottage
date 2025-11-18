@@ -1,0 +1,6 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/build_inventory_webpg.asp?T=I&WP=platespg" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update PlatesPG Web Page</b>
+     </form>
+     </td></tr>

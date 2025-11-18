@@ -1,0 +1,25 @@
+<html>
+    <Title>PAYPAL Payment Message</Title>
+    <head></head>
+    <body bgcolor="#FFFFCC">
+        <form name="printmsg">
+            <p>
+                Please use <b>auctions@tinctoriacottage.com</b> for the PayPal
+                payment e-mail address. <br /><br />
+                Once we receive the PayPal payment notification we will e-mail
+                you a payment receipt confirmation and let you know when your
+                item will be shipped.
+                <br />
+            </p>
+
+            <div align="center">
+                <b>Thank you for your winning bid!</b>
+                <br /><br />
+            </div>
+
+            <div align="center">
+                <input type="button" value="Close" onClick="window.close();" />
+            </div>
+        </form>
+    </body>
+</html>

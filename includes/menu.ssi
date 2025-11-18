@@ -1,0 +1,30 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/membership_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Membership Maintenance Menu</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/inventory_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Inventory Maintenance Menu</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/pi_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Posted Items Maintenance Menu</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/orders_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Customer Orders Maintenance Menu</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/links_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Links Page Maintenance Menu</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/refdata_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Reference Data Maintenance Menu</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/security_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Security Maintenance  Menu</b>
+     </form>
+     </td></tr>

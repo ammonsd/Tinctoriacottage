@@ -1,0 +1,360 @@
+
+<html><!-- #BeginTemplate "/Templates/template.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Books - Tinctoria Cottage</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-------------------- BEGIN COPYING THE JAVASCRIPT SECTION HERE ------------------->
+
+
+
+<style type="text/css">
+   input.prompt {border:1 solid transparent; background-color:#a5a673;width:70;font-family:arial;font-size:12; color:black;}
+   td.titlebar { background-color:#636531; color:white; font-weight:bold;font-family:arial; font-size:12;}
+   table.promptbox {border:1 solid #ccccff; background-color:#a5a673; color:black;padding-left:2;padding-right:2;padding-bottom:2;font-family:arial; font-size:12;}
+   input.promptbox {border:1 solid #0000FF; background-color:white;width:100%;font-family:arial;font-size:12; color:black; }
+</style>
+
+
+<script language='javascript'>
+
+function PopUpMsg(Title, Msg,LocFactor) {
+
+   promptbox = document.createElement('div');
+   promptbox.setAttribute ('id' , 'prompt')
+
+   sendto = 'OK'
+   document.getElementsByTagName('body')[0].appendChild(promptbox)
+   promptbox = eval("document.getElementById('prompt').style")
+   promptbox.position = 'absolute'
+   promptbox.top = 125*LocFactor
+   promptbox.left = 325
+   promptbox.width = 500
+   promptbox.border = 'outset 1 #bbbbbb'
+   document.getElementById('prompt').innerHTML = "<table cellspacing='0' cellpadding='0' border='0' width='100%'><tr valign='center'><td width='22' height='22' style='text-indent:2;' class='titlebar'></td><td class='titlebar' align='center'><font size=2>" + Title + "</font></td></tr></table>"
+   document.getElementById('prompt').innerHTML = document.getElementById('prompt').innerHTML + "<table cellspacing='10' cellpadding='0' border='0' width='100%' class='promptbox'><tr><td><br>" + Msg + "</td></tr><tr><td align='center'><br><input type='button' class='prompt' value='OK' onMouseOver='this.style.border=\"1 outset transparent\"' onMouseOut='this.style.border=\"1 solid transparent\"' onClick='" + sendto + "(\"\"); document.getElementsByTagName(\"body\")[0].removeChild(document.getElementById(\"prompt\"))'></td></tr></table>"
+}
+function OK() {
+}
+</script>
+
+
+
+<script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+/* Function that swaps images. */
+
+function di20(id, newSrc) {
+    var theImage = FWFindImage(document, id, 0);
+    if (theImage) {
+        theImage.src = newSrc;
+    }
+}
+
+/* Functions that track and set toggle group button states. */
+
+function FWFindImage(doc, name, j) {
+    var theImage = false;
+    if (doc.images) {
+        theImage = doc.images[name];
+    }
+    if (theImage) {
+        return theImage;
+    }
+    if (doc.layers) {
+        for (j = 0; j < doc.layers.length; j++) {
+            theImage = FWFindImage(doc.layers[j].document, name, 0);
+            if (theImage) {
+                return (theImage);
+            }
+        }
+    }
+    return (false);
+}
+
+
+function setCookie(name, value) {
+    document.cookie = name + "=" + escape(value);
+}
+
+function getCookie(Name) {
+    var search = Name + "=";
+    var retVal = "";
+    if (document.cookie.length > 0) {
+        offset = document.cookie.indexOf(search);
+        if (offset != -1) {
+            end = document.cookie.indexOf(";", offset);
+            offset += search.length;
+            if (end == -1) {
+                end = document.cookie.length;
+            }
+            retVal = unescape(document.cookie.substring(offset, end));
+        }
+    }
+    return (retVal);
+}
+
+function InitGrp(grp) {
+    var cmd = false;
+    if (getCookie) {
+        cmd = getCookie(grp);
+    }
+    if (cmd) {
+        eval("GrpDown(" + cmd + ")");
+        eval("GrpRestore(" + cmd + ")");
+    }
+}
+
+function FindGroup(grp, imageName) {
+    var img = FWFindImage(document, imageName, 0);
+    if (!img) {
+        return (false);
+    }
+    var docGroup = eval("document.FWG_" + grp);
+    if (!docGroup) {
+        docGroup = new Object();
+        eval("document.FWG_" + grp + " = docGroup");
+        docGroup.theImages = new Array();
+    }
+    if (img) {
+        var i;
+        for (i = 0; i < docGroup.theImages.length; i++) {
+            if (docGroup.theImages[i] == imageName) {
+                break;
+            }
+        }
+        docGroup.theImages[i] = imageName;
+        if (!img.atRestSrc) {
+            img.atRestSrc = img.src;
+            img.initialSrc = img.src;
+        }
+    }
+    return (docGroup);
+}
+
+function GrpDown(grp, imageName, downSrc, downOver) {
+    if (!downOver) {
+        downOver = downSrc;
+    }
+    var cmd = "'" + grp + "','" + imageName + "','" + downSrc + "','" + downOver + "'";
+    setCookie(grp, cmd);
+    var docGroup = FindGroup(grp, imageName, false);
+    if (!docGroup || !downSrc) {
+        return;
+    }
+    obj = FWFindImage(document, imageName, 0);
+    var theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg != obj) {
+                curImg.atRestSrc = curImg.initialSrc;
+                curImg.isDown = false;
+                obj.downOver = false;
+                curImg.src = curImg.initialSrc;
+            }
+        }
+    }
+    obj.atRestSrc = downSrc;
+    obj.downOver = downOver;
+    obj.src = downOver;
+    obj.isDown = true;
+}
+
+function GrpSwap(grp) {
+    var i, j = 0, newSrc, objName;
+    var docGroup = false;
+    for (i = 1; i < (GrpSwap.arguments.length - 1); i += 2) {
+        objName = GrpSwap.arguments[i];
+        newSrc = GrpSwap.arguments[i + 1];
+        docGroup = FindGroup(grp, objName);
+        if (!docGroup) {
+            continue;
+        }
+        obj = FWFindImage(document, objName, 0);
+        if (!obj) {
+            continue;
+        }
+        if (obj.isDown) {
+            if (obj.downOver) {
+                obj.src = obj.downOver;
+            }
+        } else {
+            obj.src = newSrc;
+            obj.atRestSrc = obj.initialSrc;
+        }
+        obj.skipMe = true;
+        j++;
+    }
+    if (!docGroup) {
+        return;
+    }
+    theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg.atRestSrc && !curImg.skipMe) {
+                curImg.src = curImg.atRestSrc;
+            }
+            curImg.skipMe = false;
+        }
+    }
+}
+
+function GrpRestore(grp) {
+    var docGroup = eval("document.FWG_" + grp);
+    if (!docGroup) {
+        return;
+    }
+    theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg.atRestSrc) {
+                curImg.src = curImg.atRestSrc;
+            }
+        }
+    }
+}
+
+// stop hiding -->
+</script>
+
+<!-------------------------- STOP COPYING THE JAVASCRIPT HERE -------------------------->
+
+<body bgcolor="#FFFFCC" text="#666633" link="#666633" vlink="#666633" background="/graphics/tincbg.jpg">
+<table width="100%" border="0">
+  <tr>
+    <td width="110"><img src="/graphics/shim.gif" width="110" height="1"></td>
+
+    <td width="850" align="center"><!-- #BeginEditable "header" --><img src="/graphics/bookban.gif" width="300" height="90"><!-- #EndEditable --></td>
+  </tr>
+  <tr>
+    <td width="110"></td>
+    <td width='850'>
+        <a href="/new/home.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c1','/graphics/nav5_r1_c1_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c1','/graphics/nav5_r1_c1_F3.gif','/graphics/nav5_r1_c1_F3.gif')" ><img name="nav5_r1_c1" src="/graphics/nav5_r1_c1.gif" width="47" height="27" border="0"></a>
+        <a href="/new/linenpg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c3','/graphics/nav5_r1_c3_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c3','/graphics/nav5_r1_c3_F3.gif','/graphics/nav5_r1_c3_F3.gif')" ><img name="nav5_r1_c3" src="/graphics/nav5_r1_c3.gif" width="95" height="27" border="0"></a>
+        <a href="/new/wovenpg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c5','/graphics/nav5_r1_c5_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c5','/graphics/nav5_r1_c5_F3.gif','/graphics/nav5_r1_c5_F3.gif')" ><img name="nav5_r1_c5" src="/graphics/nav5_r1_c5.gif" width="86" height="27" border="0"></a>
+        <a href="/new/creationpg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c4','/graphics/nav5_r1_c4_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c4','/graphics/nav5_r1_c4_F3.gif','/graphics/nav5_r1_c4_F3.gif')" ><img name="nav5_r1_c4" src="/graphics/nav5_r1_c4.gif" width="109" height="27" border="0"></a>
+
+        <a href="/new/linkspg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c7','/graphics/nav5_r1_c7_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c7','/graphics/nav5_r1_c7_F3.gif','/graphics/nav5_r1_c7_F3.gif')" ><img name="nav5_r1_c7" src="/graphics/nav5_r1_c7.gif" width="51" height="27" border="0"></a>
+<div align='right'>
+<font face="Times New Roman, Times, serif" color='#666633' size=2>
+<a href='/dir/list_books.asp' onmouseover="window.status='Display all 24 books, including descriptions, in a printable format.';return true">Printer-Friendly Format </a>
+&nbsp;&nbsp;&nbsp;|&nbsp;
+First
+&nbsp;|&nbsp;
+Previous
+&nbsp;|&nbsp;
+<a href='/dir/bookspg.asp?P=F' onmouseover="window.status='Next Page';return true">Next</a>
+&nbsp;|&nbsp;
+<a href='/dir/bookspg.asp?P=L' onmouseover="window.status='Last Page';return true">Last</a>
+&nbsp;|&nbsp;
+1-10 of 24
+</font>
+</div>
+    </td>
+  </tr>
+  <tr>
+    <td width="110">&nbsp;</td>
+    <td width="850"><img src="/graphics/rule.gif" width="850" height="21"><!-- #BeginEditable "body%20text" -->
+<table>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=30' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Alla Tiders Trasmattor (Great Rag Rugs)','1999. Sweden. An exciting idea-book with instructions for making 35 rag rugs to beautify the floors of your home. Choose from playful & colorful or simple & classical styles. Simple, easy-to-follow instructions and diagrams are supplemented by lively photographs, making this book both a practical guide and a source of creative inspiration. Full page color photographs of each rug. Swedish.&nbsp;&nbsp; Published: 2003',1);return false" ><b>Alla Tiders Trasmattor (Great Rag Rugs)</b></a><br>
+
+by Hallgren, Ann-Kristin and Monika Hallén<br>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=154' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Art of the Loom - Weaving, Spinning and Dyeing Across the World, The','The emphasis of this book is on traditional methods of weaving, spinning and dyeing still in use today, but originating hundreds of years ago and passed down from one generation to another. In every case the equipment used is simple, but the methods of patterning are sometimes extremely complex, either at the dyeing stage before weaving commences or in the procedures used for the weaving itself. The textiles have been produced by people living in small communities often far removed from city life, initially for themselves but now bought by collectors who recognise their value. The author has selected eight subjects which she finds of special interest: Navaho Indian weaving in North America; fhe work of the bedouin from the Arabian peninsula the narrow-strip weaving of West Africa; inlay weaving in Nepal; Indonesian weaving, with special emphasis on the supplementary warp and weft weaves; weaving in Peru. The introduction describes the basic principles involved in the closely related, and interdependent, crafts of weaving, spinning and dyeing, in order to prepare the general reader for the more detailed descriptions that follow. Each chapter starts with a brief geographical and historical sketch of the area, or country, in order to set the scene. This is followed by separate sections describing the spinning of yarns used; the dye plants and dyeing procedures; the loom or looms used; and the weaving techniques (with the exception of thechapter on kastlri, which concentrates on the methods of binding).',1);return false" ><b>Art of the Loom - Weaving, Spinning and Dyeing Across the World, The</b></a><br>
+by Ann Hecht<br>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=151' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Book of Looms, The','The handloom - often no more than a bundle of sticks and a few lengths of cordage - has been known to almost all cultures for thousands of years. The author places the wide variety of handlooms in historical context. What influenced their development? How did they travel from one geographic area to another? Were they invented independently by different cultures? How have modern cultures improved on ancient weaving skills and methods.Broudy highlights the increadible technical achievement of privitive cultures that created magnificent textiles with the crudest of tools',1);return false" ><b>Book of Looms, The</b></a><br>
+by Eric Broudy<br>
+</td></tr>
+
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=39' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Clothing Patterns from the Weaving Room','A collection of a dozen pattern styles with lots of helps and hints to make your project a success the first time and every time. Although most rules are made to be broken, in general you will find; no darts, no inter facings, no buttonholes, no sleeve caps, no hand sewing, no padding, no linings.',1);return false" ><b>Clothing Patterns from the Weaving Room</b></a><br>
+by Susan Lilly<br>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=157' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Complete Book of Drafting for Handweavers, The','This is a complete book. You will learn to use drafting tools - warp and weft drawdowns, warp dn weft cross sections, and block profile drafts - you’ll also learn how to design with pattern weaves. Under one cover you will find the steps for drafting and weaving any profile design in any unit weave.',1);return false" ><b>Complete Book of Drafting for Handweavers, The</b></a><br>
+by Madelyn van der Hoogt<br>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=45' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Damask and Opphämta with Weaving Sword or Drawloom','This textbook covers many techniques using two sets of shafts, one set for patterning and one set for the ground weave. These techniques include Opphämta, Smålandsväv, and damask. It covers the shaft draw system as well as the single draw system, with exhaustive loom dressing information on each. Sword damask and an Opphämta method using only one set of shafts are also covered. This book is a must for anyone interested in these weaves. In English.',2);return false" ><b>Damask and Opphämta with Weaving Sword or Drawloom</b></a><br>
+
+by Lillemor Johansson; translation by Susan Jones<br>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=62' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Damast','This booklet contains 23 different project ideas in damask for your drawloom. Most projects use 10-20 pattern shafts. Some pieces use an individual draw system. The beautiful color photos inspire the weaver to take his or her designing skills in new directions due to the variety of styles portrayed. With supplement in English.',2);return false" ><b>Damast</b></a><br>
+by Lillemor Johansson, ed.<br>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=42' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Danish Handmade Rugs and Carpets','1996. Denmark. This book - the most comprehensive book ever - covers hand-woven Danish rugs from the early twenties until the present time. It profiles some of the pioneers, such as Gerda Henning, Lis Ahlmann, and Paula Trock as well as the next generation of weavers, including Vibeke Klint, Jette Nevers, Ruth Malinowski, Kim Naver, Randi Studsgarth, Krestine Kjærholm and more. Depicts many beautiful rugs for the altar, walls, stairs and stairwells, accompanied by name and birth date of weaver/artist, materials used, size and year of the work. Many of the rugs are dominated by geometrical designs and run the full range of color. Their exquisite display in rooms and in churches is very inspiring. Danish/ English',2);return false" ><b>Danish Handmade Rugs and Carpets</b></a><br>
+by Inge Alifrangis<br>
+</td></tr>
+
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=163' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Handloom Weaving Technology','Considered a classic almost from its day of first publication two decdes ago, this book remains the most complete and detailed book in the field. It presents a comprehensive pictue of the technology and mechanics of handloom weaving, now updated with a chapter on the use of the computer. A must for every wearver’s library.',2);return false" ><b>Handloom Weaving Technology</b></a><br>
+by Allen A. Fannin<br>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><a href='/dir/book_details.asp?ID=36' onmouseover="window.status='Display Book Details';return true" oncontextmenu="PopUpMsg('Inkle Weaving','Everything you need to know about inkle weaving is covered in this book, including directions for four different pick-up techniques. Of course, the basics are covered, and many interesting and practical variations are described. The pick-up weaves are described in words and are accompanied by clear pictures. Good finishing techniques, joining bands to make wider pieces such as pillows, purses, and ponchos are illustrated and many ways of using bands are shown.',2);return false" ><b>Inkle Weaving</b></a><br>
+by Helene Bress<br>
+</td></tr>
+
+
+</table>
+
+<table>
+<tr>
+<td width="850" colspan=2><img src="/graphics/rule.gif" width="850" height="10">
+</tr>
+<tr>
+<td width=350 align='left' nowrap>
+<form action='bookspg.asp' method='post' name='Form' id='Form'>
+<input type='hidden' name='SEARCH' value='Y'>
+<a href='search_help.asp' onmouseover="window.status='Book Search Documentation';return true"><font face='Times New Roman, Times, serif' color='#666633' size=-2>Search Help</font></a>
+<img src='/graphics/shim.gif' width='75' height='0'>
+<a href='bookspg.asp?AS=Y&P=-' onmouseover="window.status='Advance Search Option';return true"><font face='Times New Roman, Times, serif' color='#666633' size=-2>Advanced Search</font></a>
+<br>
+<input type='text' name='Keywords' size=30 value=''>
+<input type='image' src='/graphics/buttons/searchbut.gif' height='18' width='46' alt='Search'>
+</form>
+
+</td>
+<td width=500 align='right' valign='top' nowrap>
+<font face="Times New Roman, Times, serif" color='#666633' size=2>
+<a href='/dir/list_books.asp' onmouseover="window.status='Display all 24 books, including descriptions, in a printable format.';return true">Printer-Friendly Format </a>
+&nbsp;&nbsp;&nbsp;|&nbsp;
+First
+&nbsp;|&nbsp;
+Previous
+&nbsp;|&nbsp;
+<a href='/dir/bookspg.asp?P=F' onmouseover="window.status='Next Page';return true">Next</a>
+&nbsp;|&nbsp;
+<a href='/dir/bookspg.asp?P=L' onmouseover="window.status='Last Page';return true">Last</a>
+&nbsp;|&nbsp;
+1-10 of 24
+</font>
+</td></tr>
+</table>
+
+      <!-- #EndEditable --></td>
+</tr>
+</table>
+</body>
+<!-- #EndTemplate --></html>

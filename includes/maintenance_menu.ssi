@@ -1,0 +1,58 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/maintenance_menu_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Maitenance Menu</b>
+     </form>
+     <form action="../cgi-bin/menu_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Company Main Menu</b>
+     </form>
+     <form action="../cgi-bin/inventory_menu_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Inventory Menu</b>
+     </form>
+     <form action="../cgi-bin/membership_menu_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Membership Menu</b>
+     </form>
+     <form action="../cgi-bin/security_menu_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Security Menu</b>
+     </form>
+     <form action="../cgi-bin/pi_menu_maint.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Posted Items Menu</b>
+     </form>
+     </td>
+     <td valign="top" nowrap>
+     <form action="../cgi-bin/links_menu_maint.asp" method="POST">
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="Submit" value="Go To">
+     <b>Update Links Menu</b>
+     </form>
+     <form action="../cgi-bin/company_setup_maint.asp" method="POST">
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="Submit" value="Go To">
+     <b>Update Company Configuration</b>
+     </form>
+     <form action="../cgi-bin/refdata_menu_maint.asp" method="POST">
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="Submit" value="Go To">
+     <b>Update Reference Data Menu</b>
+     </form>
+     <form action="../cgi-bin/inventory_webpg_menu_maint.asp" method="POST">
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="Submit" value="Go To">
+     <b>Update Inventory Web Page Menu</b>
+     </form>
+     <form action="../cgi-bin/pi_webpg_menu_maint.asp" method="POST">
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="Submit" value="Go To">
+     <b>Update Posted Items Web Page Menu</b>
+     </form>
+     <form action="../cgi-bin/orders_menu_maint.asp" method="POST">
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <input type="Submit" value="Go To">
+     <b>Update Customer Orders Menu</b>
+     </form>
+     </td></tr>

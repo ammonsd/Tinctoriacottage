@@ -1,0 +1,6 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/build_pi_webpg.asp?WP=postedpg&ExpDays=30" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update PostedPG Web Page</b>
+     </form>
+     </td></tr>

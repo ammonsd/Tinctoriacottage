@@ -1,0 +1,14 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/refdata_update.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Add New Reference Data</b>
+     </form>
+     <form action="../cgi-bin/refdata_sel.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Reference Data Maintenance</b>
+     </form>
+     <form action="../cgi-bin/refdata_sel.asp?PRT=Y" method="POST">
+     <input type="Submit" value="Go To">
+     <b>List Reference Data for Printing</b>
+     </form>
+     </td></tr>

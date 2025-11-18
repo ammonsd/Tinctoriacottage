@@ -1,0 +1,236 @@
+<html>
+  <head>
+   <title>New Customer Registration</title>
+   </head>
+   <body  bgcolor="#005757" link="#000000" vlink="#000000" >
+   <div align="CENTER">
+   <table width="500" border="1" cellspacing="0" cellpadding="2" bordercolor="#000080">
+      <tr>
+        <td width="50%" align="center" valign="top" bgcolor="#000095">
+        <font face="Arial" size="3" color="#FFFFFF">
+        <b>New Customer Registration</b>
+        </font>
+   	    </td>
+      </tr>
+      <tr>
+        <td valign="TOP" bgcolor="#B4B4B4">
+        <font face="Arial" size="2">
+     <div align="CENTER">
+   	 <table width="90" border="0" cellspacing="0" cellpadding="5">
+        <form method="post" action="../cgi-bin/members_update.asp">
+        <input type="hidden" name="$Ext" value="Y">
+   	    <font face="Arial" size="3">
+       <tr>
+   	   <td nowrap>
+          <b>First Name:</b></td><td nowrap><input type="Text" name="FirstName" size="15" maxlength="20" value="">
+          <b>Last Name:</b><input type="Text" name="LastName" size="25" maxlength="50" value=""></td>
+        </tr>
+        <tr>
+   	   <td nowrap>
+          <b>e-Mail Address:</b></td><td nowrap><input type="Text" name="e-Mail" size="55" maxlength="50" value=""></td>
+        </tr>
+   	    <tr>
+   	      <td nowrap>
+             <b>Address:</b></td><td nowrap><input type="Text" name="Street" size="55" maxlength="50" value=""></td>
+           </tr>
+   	    <tr>
+   	      <td nowrap>
+             &nbsp;</td><td nowrap><input type="Text" name="Address2" size="55" maxlength="50" value=""></td>
+           </tr>
+   	    <tr>
+   	      <td nowrap>
+             <b>City:</b></td><td nowrap><input type="Text" name="City" size="55" maxlength="50" value=""></td>
+           </tr>
+     	     <tr>
+   	       <td nowrap>
+              <b>State:</b></td>
+              <td nowrap>
+<select name="State" size="1">
+<option selected value=""></option>
+<option value="AL">AL</option>
+<option value="AK">AK</option>
+<option value="AZ">AZ</option>
+<option value="AR">AR</option>
+<option value="CA">CA</option>
+<option value="CO">CO</option>
+<option value="CT">CT</option>
+<option value="DE">DE</option>
+<option value="DC">DC</option>
+<option value="FL">FL</option>
+<option value="GA">GA</option>
+<option value="HI">HI</option>
+<option value="ID">ID</option>
+<option value="IL">IL</option>
+<option value="IN">IN</option>
+<option value="IA">IA</option>
+<option value="KS">KS</option>
+<option value="KY">KY</option>
+<option value="LA">LA</option>
+<option value="ME">ME</option>
+<option value="MD">MD</option>
+<option value="MA">MA</option>
+<option value="MI">MI</option>
+<option value="MN">MN</option>
+<option value="MS">MS</option>
+<option value="MO">MO</option>
+<option value="MT">MT</option>
+<option value="NE">NE</option>
+<option value="NV">NV</option>
+<option value="NH">NH</option>
+<option value="NJ">NJ</option>
+<option value="NM">NM</option>
+<option value="NY">NY</option>
+<option value="NC">NC</option>
+<option value="ND">ND</option>
+<option value="OH">OH</option>
+<option value="OK">OK</option>
+<option value="OR">OR</option>
+<option value="PA">PA</option>
+<option value="PR">PR</option>
+<option value="RI">RI</option>
+<option value="SC">SC</option>
+<option value="SD">SD</option>
+<option value="TN">TN</option>
+<option value="TX">TX</option>
+<option value="UT">UT</option>
+<option value="VT">VT</option>
+<option value="VA">VA</option>
+<option value="WA">WA</option>
+<option value="WV">WV</option>
+<option value="WI">WI</option>
+<option value="WY">WY</option>
+<option value="AE">AE</option>
+<option value="AP">AP</option>
+<option value="AA">AA</option>
+<option value="AS">AS</option>
+<option value="FM">FM</option>
+<option value="GU">GU</option>
+<option value="MH">MH</option>
+<option value="MP">MP</option>
+<option value="PW">PW</option>
+<option value="VI">VI</option>
+</select>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>Zip Code:</b>
+            &nbsp;&nbsp;
+            <input type="Text" name="Zip" size="10" maxlength="10" value=""></td>
+        </tr>
+        <tr>
+   	   <td nowrap>
+             <b>Country:</b>
+             </td><td>
+<select name="Country" size="1">
+ <option selected value="USA">Unitied States</option>
+ <option value="USA">United States</option>
+ <option value="Angola">Angola</option>
+ <option value="Argentina">Argentina</option>
+ <option value="Austria">Austria</option>
+ <option value="Australia">Australia</option>
+ <option value="Belgium">Belgium</option>
+ <option value="Bolivia">Bolivia</option>
+ <option value="Brazil">Brazil</option>
+ <option value="Canada">Canada</option>
+ <option value="Chile">Chile</option>
+ <option value="China">China</option>
+ <option value="Columbia">Columbia</option>
+ <option value="Czech Republic">Czech Republic</option>
+ <option value="Denmark">Denmark</option>
+ <option value="Egypt">Egypt</option>
+ <option value="England">England</option>
+ <option value="Estonia">Estonia</option>
+ <option value="Finland">Finland</option>
+ <option value="France">France</option>
+ <option value="Ghana">Ghana</option>
+ <option value="Germany">Germany</option>
+ <option value="Greece">Greece</option>
+ <option value="Hong Kong">Hong Kong</option>
+ <option value="Hungary">Hungary</option>
+ <option value="Iceland">Iceland</option>
+ <option value="India">India</option>
+ <option value="Indonesia">Indonesia</option>
+ <option value="Iran">Iran</option>
+ <option value="Ireland">Ireland</option>
+ <option value="Israel">Israel</option>
+ <option value="Italy">Italy</option>
+ <option value="Jamaica">Jamaica</option>
+ <option value="Japan">Japan</option>
+ <option value="Korea">Korea</option>
+ <option value="Latvia">Latvia</option>
+ <option value="Lithuania">Lithuania</option>
+ <option value="Malaysia">Malaysia</option>
+ <option value="Mexico">Mexico</option>
+ <option value="Micronesia">Micronesia</option>
+ <option value="Nambia">Nambia</option>
+ <option value="New Zealand">New Zealand</option>
+ <option value="Nigeria">Nigeria</option>
+ <option value="Norway">Norway</option>
+ <option value="Paraguay">Paraguay</option>
+ <option value="Philippines">Philippines</option>
+ <option value="Poland">Poland</option>
+ <option value="Portugal">Portugal</option>
+ <option value="Puerto Rico">Puerto Rico</option>
+ <option value="Romania">Romania</option>
+ <option value="Russia">Russia</option>
+ <option value="Saudi Arabia">Saudi Arabia</option>
+ <option value="Scotland">Scotland</option>
+ <option value="Seychelles">Seychelles</option>
+ <option value="Singapore">Singapore</option>
+ <option value="South Africa">South Africa</option>
+ <option value="Spain">Spain</option>
+ <option value="Sweden">Sweden</option>
+ <option value="Switzerland">Switzerland</option>
+ <option value="Tabago">Tabago</option>
+ <option value="Taiwan">Taiwan</option>
+ <option value="The Netherlands">The Netherlands</option>
+ <option value="Thialand">Thialand</option>
+ <option value="Trinidad">Australia</option>
+ <option value="Turkey">Turkey</option>
+ <option value="UAE">UAE</option>
+ <option value="United Kingdom">United Kingdom</option>
+ <option value="USA">United States</option>
+ <option value="Uruguay">Uruguay</option>
+ <option value="Venezuela">Venezuela</option>
+ <option value="Zaire">Zaire</option>
+ <option value="Zimbabwe">Zimbabwe</option>
+</select>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <b>Phone Nbr:</b>
+             <input type="Text" name="AreaCode" size="3" maxlength="3" value="">
+             -
+             <input type="Text" name="Phone1" size="3" maxlength="3" value="">
+             -
+             <input type="Text" name="Phone2" size="4" maxlength="4" value="">
+           </td></tr>
+        </tr>
+        <tr>
+   	   <td nowrap>
+             <b>Password:</b>
+             </td><td>
+             <input type="Text" name="MbrPswd" size="10" maxlength="20" value="">
+             &nbsp;&nbsp;&nbsp;
+             <b>Re-Enter Password:</b>
+             <input type="Text" name="MbrPswd2" size="10" maxlength="20" value="">
+          </td></tr>
+        <tr><td colspan="2" nowrap><hr></td></tr>
+       <tr>
+   	   <td colspan="2" align="center">
+            <input type="Submit" name="ADD" value=Submit>
+               &nbsp;&nbsp;&nbsp;&nbsp;
+               <input type="Reset" value="Reset">
+               </td>
+
+        </font>
+        </form>
+        <tr>
+        <td colspan="2">
+        </td></tr>
+        </table>
+   	 </div>
+        </td>
+      </tr>
+   </table>
+   </div>
+   </body>
+   </html>

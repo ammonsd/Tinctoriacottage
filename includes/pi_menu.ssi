@@ -1,0 +1,22 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/items_update.asp?T=P&C=2" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Add New Items</b>
+     </form>
+     <form action="../cgi-bin/items_sel.asp?T=P&P=L&C=2" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Item Maintenance</b>
+     </form>
+     <form action="../cgi-bin/items_sel.asp?T=P&P=L&PRT=Y&C=2" method="POST">
+     <input type="Submit" value="Go To">
+     <b>List Items for Printing</b>
+     </form>
+     <form action="../cgi-bin/goto.asp?LOC=../maint/pi_webpg_menu.shtml" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Update Web Pages</b>
+     </form>
+     </td></tr>
+     <tr><td align = "center">
+      <a href="/help.html#PostItems" target="Help_Win">
+     <img src="../Graphics/help.gif" width=75 height=24 border=0 align="top" alt="Documentation"></a>
+     </td></tr>

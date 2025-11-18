@@ -1,0 +1,333 @@
+<html><!-- #BeginTemplate "/Templates/template.dwt" -->
+<head>
+<!-- #BeginEditable "doctitle" -->
+<title>Tinctoria Cottage Favorite Web Sites</title>
+<!-- #EndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<!-------------------- BEGIN COPYING THE JAVASCRIPT SECTION HERE ------------------->
+
+<script language="JavaScript">
+<!-- hide this script from non-javascript-enabled browsers
+
+if (document.images) {
+nav5_r1_c1_F1 = new Image(47,27); nav5_r1_c1_F1.src = "/Graphics/nav5_r1_c1.gif";
+nav5_r1_c1_F2 = new Image(47,27); nav5_r1_c1_F2.src = "/Graphics/nav5_r1_c1_F2.gif";
+nav5_r1_c1_F3 = new Image(47,27); nav5_r1_c1_F3.src = "/Graphics/nav5_r1_c1_F3.gif";
+nav5_r1_c3_F1 = new Image(95,27); nav5_r1_c3_F1.src = "/Graphics/nav5_r1_c3.gif";
+nav5_r1_c3_F2 = new Image(95,27); nav5_r1_c3_F2.src = "/Graphics/nav5_r1_c3_F2.gif";
+nav5_r1_c3_F3 = new Image(95,27); nav5_r1_c3_F3.src = "/Graphics/nav5_r1_c3_F3.gif";
+nav5_r1_c4_F1 = new Image(109,27); nav5_r1_c4_F1.src = "/Graphics/nav5_r1_c4.gif";
+nav5_r1_c4_F2 = new Image(109,27); nav5_r1_c4_F2.src = "/Graphics/nav5_r1_c4_F2.gif";
+nav5_r1_c4_F3 = new Image(109,27); nav5_r1_c4_F3.src = "/Graphics/nav5_r1_c4_F3.gif";
+nav5_r1_c5_F1 = new Image(86,27); nav5_r1_c5_F1.src = "/Graphics/nav5_r1_c5.gif";
+nav5_r1_c5_F2 = new Image(86,27); nav5_r1_c5_F2.src = "/Graphics/nav5_r1_c5_F2.gif";
+nav5_r1_c5_F3 = new Image(86,27); nav5_r1_c5_F3.src = "/Graphics/nav5_r1_c5_F3.gif";
+nav5_r1_c6_F1 = new Image(49,27); nav5_r1_c6_F1.src = "/Graphics/nav5_r1_c6.gif";
+nav5_r1_c6_F2 = new Image(49,27); nav5_r1_c6_F2.src = "/Graphics/nav5_r1_c6_F2.gif";
+nav5_r1_c6_F3 = new Image(49,27); nav5_r1_c6_F3.src = "/Graphics/nav5_r1_c6_F3.gif";
+}
+
+/* Function that swaps images. */
+
+function di20(id, newSrc) {
+    var theImage = FWFindImage(document, id, 0);
+    if (theImage) {
+        theImage.src = newSrc;
+    }
+}
+
+/* Functions that track and set toggle group button states. */
+
+function FWFindImage(doc, name, j) {
+    var theImage = false;
+    if (doc.images) {
+        theImage = doc.images[name];
+    }
+    if (theImage) {
+        return theImage;
+    }
+    if (doc.layers) {
+        for (j = 0; j < doc.layers.length; j++) {
+            theImage = FWFindImage(doc.layers[j].document, name, 0);
+            if (theImage) {
+                return (theImage);
+            }
+        }
+    }
+    return (false);
+}
+
+
+function setCookie(name, value) {
+    document.cookie = name + "=" + escape(value);
+}
+
+function getCookie(Name) {
+    var search = Name + "=";
+    var retVal = "";
+    if (document.cookie.length > 0) {
+        offset = document.cookie.indexOf(search);
+        if (offset != -1) {
+            end = document.cookie.indexOf(";", offset);
+            offset += search.length;
+            if (end == -1) {
+                end = document.cookie.length;
+            }
+            retVal = unescape(document.cookie.substring(offset, end));
+        }
+    }
+    return (retVal);
+}
+
+function InitGrp(grp) {
+    var cmd = false;
+    if (getCookie) {
+        cmd = getCookie(grp);
+    }
+    if (cmd) {
+        eval("GrpDown(" + cmd + ")");
+        eval("GrpRestore(" + cmd + ")");
+    }
+}
+
+function FindGroup(grp, imageName) {
+    var img = FWFindImage(document, imageName, 0);
+    if (!img) {
+        return (false);
+    }
+    var docGroup = eval("document.FWG_" + grp);
+    if (!docGroup) {
+        docGroup = new Object();
+        eval("document.FWG_" + grp + " = docGroup");
+        docGroup.theImages = new Array();
+    }
+    if (img) {
+        var i;
+        for (i = 0; i < docGroup.theImages.length; i++) {
+            if (docGroup.theImages[i] == imageName) {
+                break;
+            }
+        }
+        docGroup.theImages[i] = imageName;
+        if (!img.atRestSrc) {
+            img.atRestSrc = img.src;
+            img.initialSrc = img.src;
+        }
+    }
+    return (docGroup);
+}
+
+function GrpDown(grp, imageName, downSrc, downOver) {
+    if (!downOver) {
+        downOver = downSrc;
+    }
+    var cmd = "'" + grp + "','" + imageName + "','" + downSrc + "','" + downOver + "'";
+    setCookie(grp, cmd);
+    var docGroup = FindGroup(grp, imageName, false);
+    if (!docGroup || !downSrc) {
+        return;
+    }
+    obj = FWFindImage(document, imageName, 0);
+    var theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg != obj) {
+                curImg.atRestSrc = curImg.initialSrc;
+                curImg.isDown = false;
+                obj.downOver = false;
+                curImg.src = curImg.initialSrc;
+            }
+        }
+    }
+    obj.atRestSrc = downSrc;
+    obj.downOver = downOver;
+    obj.src = downOver;
+    obj.isDown = true;
+}
+
+function GrpSwap(grp) {
+    var i, j = 0, newSrc, objName;
+    var docGroup = false;
+    for (i = 1; i < (GrpSwap.arguments.length - 1); i += 2) {
+        objName = GrpSwap.arguments[i];
+        newSrc = GrpSwap.arguments[i + 1];
+        docGroup = FindGroup(grp, objName);
+        if (!docGroup) {
+            continue;
+        }
+        obj = FWFindImage(document, objName, 0);
+        if (!obj) {
+            continue;
+        }
+        if (obj.isDown) {
+            if (obj.downOver) {
+                obj.src = obj.downOver;
+            }
+        } else {
+            obj.src = newSrc;
+            obj.atRestSrc = obj.initialSrc;
+        }
+        obj.skipMe = true;
+        j++;
+    }
+    if (!docGroup) {
+        return;
+    }
+    theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg.atRestSrc && !curImg.skipMe) {
+                curImg.src = curImg.atRestSrc;
+            }
+            curImg.skipMe = false;
+        }
+    }
+}
+
+function GrpRestore(grp) {
+    var docGroup = eval("document.FWG_" + grp);
+    if (!docGroup) {
+        return;
+    }
+    theImages = docGroup.theImages;
+    if (theImages) {
+        for (i = 0; i < theImages.length; i++) {
+            var curImg = FWFindImage(document, theImages[i], 0);
+            if (curImg && curImg.atRestSrc) {
+                curImg.src = curImg.atRestSrc;
+            }
+        }
+    }
+}
+
+// stop hiding -->
+</script>
+
+<!-------------------------- STOP COPYING THE JAVASCRIPT HERE -------------------------->
+<!--
+<body bgcolor="#FFFFCC" text="#666633" link="#CC9900" vlink="#666666" background="/Graphics/tincbg.jpg">
+-->
+<body bgcolor="#FFFFCC" text="#666633" link="#666633" vlink="#666633" background="/graphics/tincbg.jpg">
+<table width="100%" border="0">
+  <tr>
+    <td width="110"><img src="/Graphics/shim.gif" width="110" height="1"></td>
+    <td width="500" align="center"><!-- #BeginEditable "header" --><img src="/Graphics/favlinksban.gif" width="300" height="90"><!-- #EndEditable --></td>
+  </tr>
+    <tr><td>&nbsp;</td></tr>
+  <tr>
+    <td width="110"></td>
+    <td width="500">
+      <p align="left">
+        <a href="/new/home.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c1','/Graphics/nav5_r1_c1_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c1','/Graphics/nav5_r1_c1_F3.gif','/Graphics/nav5_r1_c1_F3.gif')" ><img name="nav5_r1_c1" src="/Graphics/nav5_r1_c1.gif" width="47" height="27" border="0"></a>
+        <a href="/new/linenpg.shtml" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c3','/Graphics/nav5_r1_c3_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c3','/Graphics/nav5_r1_c3_F3.gif','/Graphics/nav5_r1_c3_F3.gif')" ><img name="nav5_r1_c3" src="/Graphics/nav5_r1_c3.gif" width="95" height="27" border="0"></a>
+        <a href="/new/creationpg.shtml" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c4','/Graphics/nav5_r1_c4_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c4','/Graphics/nav5_r1_c4_F3.gif','/Graphics/nav5_r1_c4_F3.gif')" ><img name="nav5_r1_c4" src="/Graphics/nav5_r1_c4.gif" width="109" height="27" border="0"></a>
+        <a href="/new/wovenpg.shtml" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c5','/Graphics/nav5_r1_c5_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c5','/Graphics/nav5_r1_c5_F3.gif','/Graphics/nav5_r1_c5_F3.gif')" ><img name="nav5_r1_c5" src="/Graphics/nav5_r1_c5.gif" width="86" height="27" border="0"></a>
+        <img src="/Graphics/shim.gif" width="1" height="27" border="0">
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="110">&nbsp;</td>
+    <td width="500"><img src="/Graphics/rule.gif" width="500" height="21"><!-- #BeginEditable "body%20text" -->
+      <p><font size="6" face="Times New Roman, Times, serif">H</font><font face="Times New Roman, Times, serif">ere
+      are some Websites we like -- hope you find them useful and informative.
+
+<br>
+<br>
+<img src='/dir/graphics/spacer.gIf' width='10' height='1' border='0' alt=''>
+&nbsp;&nbsp;
+<b>Antique Textiles and Textile Care</b><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.eatonhilltextiles.com target='_blank' onmouseover="window.status='Eaton Hill Textiles (reproduction fabric, classes)';return true">Eaton Hill Textiles (reproduction fabric, classes)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.samplings.com target='_blank' onmouseover="window.status='M. Finkel & Daughter (antique samplers)';return true">M. Finkel & Daughter (antique samplers)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.fiberarts.org/design/articles/mangling.html target='_blank' onmouseover="window.status='Mangling in Sweden';return true">Mangling in Sweden</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.marybethtemple.com target='_blank' onmouseover="window.status='Mary Beth Temple (antique linen care supplies)';return true">Mary Beth Temple (antique linen care supplies)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.rabbitgoody.com target='_blank' onmouseover="window.status='Rabbit Goody Historic Textiles (reproduction fabric, seminars)';return true">Rabbit Goody Historic Textiles (reproduction fabric, seminars)</a><br>
+<br>
+<img src='/dir/graphics/spacer.gIf' width='10' height='1' border='0' alt=''>
+&nbsp;&nbsp;
+<b>Weaving Books ( Bibliography)</b><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.tinctoriacottage.com/dir/bookspg.asp?CAT=Swedish onmouseover="window.status='Swedish Weaving Books';return true">Swedish Weaving Books</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.tinctoriacottage.com/dir/bookspg.asp?CAT=Other onmouseover="window.status='Other Weaving Books';return true">Other Weaving Books</a><br>
+<br>
+<img src='/dir/graphics/spacer.gIf' width='10' height='1' border='0' alt=''>
+&nbsp;&nbsp;
+<b>Weaving Supplies</b><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.vavstuga.com target='_blank' onmouseover="window.status='Becky�s Vav Stuga (supplies, classes, and cold mangle)';return true">Becky�s Vav Stuga (supplies, classes, and cold mangle)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.clb.se/easyshop02/index.htm target='_blank' onmouseover="window.status='Blomquist Yarns';return true">Blomquist Yarns</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.borgsvavgarner.se/ target='_blank' onmouseover="window.status='Borgs Yarn';return true">Borgs Yarn</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.camillavalleyfarm.com target='_blank' onmouseover="window.status='Camilla Valley Farm';return true">Camilla Valley Farm</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.wovengallery.com/ target='_blank' onmouseover="window.status='Cannon Hill Studios';return true">Cannon Hill Studios</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://people.montana.com/~elh/ target='_blank' onmouseover="window.status='Elkhorn Mountain Studio (supplies and classes)';return true">Elkhorn Mountain Studio (supplies and classes)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.vavsked.se/ target='_blank' onmouseover="window.status='Glimakra Looms (Andersson)';return true">Glimakra Looms (Andersson)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.habutextiles.com target='_blank' onmouseover="window.status='Habu Textiles';return true">Habu Textiles</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.charkha.biz target='_blank' onmouseover="window.status='New World Textiles';return true">New World Textiles</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.the-mannings.com target='_blank' onmouseover="window.status='The Mannings';return true">The Mannings</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.villagespinweave.com target='_blank' onmouseover="window.status='Village Spinning & Weaving';return true">Village Spinning & Weaving</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.vulcan.mbweb.com/ target='_blank' onmouseover="window.status='Vulcan�s Rest Fibers';return true">Vulcan�s Rest Fibers</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.vavforlag.se/index-e.htm target='_blank' onmouseover="window.status='V�vmagasinet';return true">V�vmagasinet</a><br>
+<br>
+<img src='/dir/graphics/spacer.gIf' width='10' height='1' border='0' alt=''>
+&nbsp;&nbsp;
+<b>Weaving Organizations & Schools</b><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.complex-weavers.org/ target='_blank' onmouseover="window.status='Complex Weavers';return true">Complex Weavers</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.weavespindye.org target='_blank' onmouseover="window.status='Handweavers Guild of America';return true">Handweavers Guild of America</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.no.link.yet target='_blank' onmouseover="window.status='Harmony Weavers Guild';return true">Harmony Weavers Guild</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.saterglantan.se/ target='_blank' onmouseover="window.status='S�tergl�ntan  (Swedish handcraft school)';return true">S�tergl�ntan  (Swedish handcraft school)</a><br>
+<br>
+<img src='/dir/graphics/spacer.gIf' width='10' height='1' border='0' alt=''>
+&nbsp;&nbsp;
+<b>Miscellaneous Resources</b><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.jacobsheepconservancy.org/ target='_blank' onmouseover="window.status='About Jacob Sheep';return true">About Jacob Sheep</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.greenbankmill.org target='_blank' onmouseover="window.status='Greenbank Mill';return true">Greenbank Mill</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://members.aol.com/heirlooml/info.html target='_blank' onmouseover="window.status='Heirloom Labels';return true">Heirloom Labels</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.chriswetherell.com/hobbit/default.asp target='_blank' onmouseover="window.status='Hobbit Name Generator';return true">Hobbit Name Generator</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.kannikskorner.com/ target='_blank' onmouseover="window.status='Kannik�s Corner (Historic Sewing Patterns)';return true">Kannik�s Corner (Historic Sewing Patterns)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.sheepandwool.org/ target='_blank' onmouseover="window.status='Maryland Sheep & Wool Festival';return true">Maryland Sheep & Wool Festival</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.sheepandwool.com target='_blank' onmouseover="window.status='New York State Sheep & Wool Festival (Rhinebeck)';return true">New York State Sheep & Wool Festival (Rhinebeck)</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.rmhh.co.uk/occup/b.html target='_blank' onmouseover="window.status='Old Occupations';return true">Old Occupations</a><br>
+<img src='/dir/graphics/spacer.gIf' width='48' height='1' border='0' alt=''>
+<a href=http://www.woodedhamlet.com target='_blank' onmouseover="window.status='Wooded Hamlet Designs (linen tapes)';return true">Wooded Hamlet Designs (linen tapes)</a><br>
+
+      <!-- #EndEditable --></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+<!-- #EndTemplate --></html>

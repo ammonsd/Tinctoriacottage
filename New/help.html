@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<title>Visitor Registry Documentation</TITLE>
+</HEAD>
+<body bgcolor="#C0C0C0" vlink="#0000FF">
+<a name="Registry"><H2>Visitor Registry Documentation</H2></a>
+<hr>
+<h3><u>Description</u></h3>
+
+<p>The Fulcrum Computing Visitor Registry will allow an Organization to maintain a record of visitors to their Web site using any "guest book" style information collection form.  The visitor information collected is stored in a database that can be updated by the Organization.</p>
+
+<p>To remain in contact with visitors to the Web site and keep them informed on news about the Organization, there is a function that builds an <a href="#BcEmail">e-mail distribution</a> list from the Registry.  The distribution list can be narrowed using the <a href="#MbrSel">member selection</a> function.</p>
+  
+<hr>
+<H3><a name="MenuOps"><u>Membership Maintenance Menu Options</u></a></H3>
+<hr>
+<a name="MbrAdd"><b><u>Add New Members</u></b></a>
+
+<p>This option allows adding new members to the Visitor Registry without having to use the Web Site guest book. To facilitate adding multiple members, a cleared form will reappear after each new member is added.  Pressing "Submit" without an e-mail address will terminate the "Add" process and return control to the Maintenance Menu.</p>
+
+<p>The input form will have a field called <b>Keywords</b>.  This field is provided as an additional option for the <a href="#MbrSel">member selection function</a>.  Keywords can be used to categorize members by geographical regions, products, etc.  Multiple keywords must be separated by a comma or space.  If the guest book has check boxes, each one checked will appear in the visitors keywords as "CB#", where "#" is the check box number.  This allows selecting members based on the boxes checked when the guest book was processed.</p>
+
+<hr>
+<a name="MbrMaint"><b><u>Membership Maintenance</u></b></a>
+
+<p>After this option is selected, the <a href="#MbrSel">selection criteria</a> window displays to determine which members to update.  Once the criteria has been entered, a selection box will display with the <b>name</b>, <b>e-mail address</b> and <b>keywords</b> of all the members in the Registry that satisfied the requested criteria.  From this list, members can be selected for either <b>updating</b> or <b>removal</b> from the Registry.  A form, pre-filled with the members current Registry information, will  appear for each member selected for updating.</p>
+
+<hr>
+<a name="PrintMbrs"><b><u>List Members for Printing</u></b></a>
+<p>This option will retrieve the Registry details for every member that satisfied the requested <a href="#MbrSel">selection criteria</a> and display the information in a format suitable for printing from the browser.</p>
+
+<hr>
+<a name="BcEmail"><b><u>Send Broadcast e-mail</u></b></a>
+<p>This option will display a window to collect the details for sending an e-mail message to every member on the Organization's e-mail distribution list that satisfied the requested <a href="#MbrSel">selection criteria</a>.  The "From" address will be the Organization's Customer Service email address and the body of the message will include:</p>
+
+<ul>
+<li><b>Subject</b>: This is the text that will appear in each recipients e-mail message.
+<li><b>Text</b>: Either key in the text to be e-mailed or paste in text that was copied to the clipboard. The recommended method would be to compose the message in your e-mail program where it can be formatted, spell checked and saved as a <b>draft</b> copy.  The finished contents would be copied and pasted into the text area when ready to send.
+</ul>
+
+<p>An <b>individual</b> e-mail message will be sent to each recipient matching the selection criteria.  This process allows:</p>
+
+<ul>
+<li>Maintaining a personal touch by showing only the recipients name in the "To" address area,
+<li>Customizing each e-mail message sent using the parameters outlined below, and
+<li>Maintain confidentiality by <b>not</b> listing all the recipients on each e-mail message sent.
+</ul>
+
+<p>Customization for reach recipient's e-mail message can be achieve by inserting any of the following tags into the message template.  Just prior to sending each message, the tags will be replaced with the appropriate information for that recipient.  The tags must be inserted exactly as shown, including lower case and brackets.  The <b>preview</b> option will display a sample of what the e-mail text will look like after the substitutions.</p>
+
+<ul>
+<li><b>[company]</b> - Company's Name
+<li><b>[custsrvemail]</b> - Customer Service e-mail Address
+<li><b>[homepg]</b> - Company's Home Page
+<li><b>[mbrfname]</b> - Member's First Name
+<li><b>[mbrlname]</b> - Member's Last Name
+<li><b>[mbremail]</b> - Member's e-mail Address
+<li><b>[mbrcompany]</b> - Member's Company
+<li><b>[mbraddr1]</b> - Member's Address #1
+<li><b>[mbraddr2]</b> - Member's Address #2
+<li><b>[mbrcity]</b> - Member's City
+<li><b>[mbrstate]</b> - Member's State
+<li><b>[mbrzip]</b> - Member's Zip Code
+<li><b>[mbrcountry]</b> - Member's Country
+<li><b>[mbrphone#]</b> - Member's Phone Number formatted as (xxx) xxx-xxxx
+<li><b>[mbrhomepg]</b> - Member's Home Page
+</ul>
+
+<p>For example, the following e-mail text sent by Fulcrum Computing:</p>
+
+<ul>
+Hello [mbrfname],<br>
+<br>
+We are going through our records and would like you to verify your information.  Please send any<br> corrections to [custsrvemail].<br>
+<br>
+Thank You,<br>
+   [company]<br>
+<br>
+<br>
+   [mbrfname] [mbrlname]<br>
+   [mbraddr1]<br>
+   [mbrcity]  [mbrstate]  [mbrzip]<br>
+   [mbremail]</p>
+   
+</ul>
+
+<p>Could be translated and sent as:</p>
+
+<ul>
+Hello Dean,<br>
+<br>
+We are going through our records and would like you to verify your information.  Please send any<br> corrections to CustomerService@fulcrumcomputing.com.<br>
+<br>
+Thank You,<br>
+   Fulcrum Computing, Inc.<br>
+<br>
+<br>
+   Dean Ammons<br>
+   123 Anywhere Road<br>
+   Anyciy,  MD 12345<br>
+   ammonsd@fulcrumcomputing.com
+</ul>
+
+<hr>
+<a name="MbrSel"><b><u>Criteria For Member Selection</u></b></a>
+<p>The following selection criteria can be entered to narrow the number of members processed for the <b>Maintenance</b>, <b>Printing</b> and <b>Broadcast E-Mail</b> functions.  Multiple entries for a category are separated with a comma (i.e. <b>MD,PA,DE</b> for multiple States).</p>
+
+<ul>
+<li><b>First and Last Name</b> - Enter data exactly as entered by member, including upper and lower case and any punctuation.
+<li><b>Company</b> - Enter data exactly as entered by member, including upper and lower case and any punctuation.
+<li><b>State</b> - Use the two character state code. 
+<li><b>Zip</b> - Searches the five character portion of zip code only.
+<li><b>E-mail Address</b> - Since e-mail addresses are stored in lower case, the criteria entered will be converted to lower case.
+<li><b>Keywords</b> - Since keywords are stored in upper case, the criteria entered will be converted to upper case.  Matches are on the <b>exact</b> keyword, therefore the <b>wild card</b> option cannot be used.  Selection can either be determined by matching a single keyword (<b>"Or"</b> option) or matching every keyword entered (<b>"And"</b> option).
+<li><b>Distribution List</b> - Selecting "Yes" will list only members on the Distribution List.  Selecting "No" will list only members not on the Distribution List.    
+</ul>
+
+<p>Besides the exact match search, the following special options are available:</p>
+
+<ul>
+<li>Prefix an entry with "<b>-</b>" to do a <b>not equal</b> type of search (i.e. The State entry <b>-DE</b> will list all members not in Delaware)
+<li>Use the symbol "<b>*</b>" to indicate a <b>wild card</b> type of search.  For example, using the Last Name category:
+<ul>
+<li><b>"A*"</b> - Search for all names beginning with "A"
+<li><b>"*S"</b> - Search for all names ending with a "S"
+<li><b>"*e*"</b> - Search for all names that contain an "e"
+<li><b>"-*ith*"</b> - Search for all names that do not contain "ith"
+</ul>
+</ul>
+Comparisons default as follows:
+<ul>
+<li>Multiple entries within a category only require a single match to satisfy the search requirements for <b>that</b> category.  The only exception is <b>keywords</b>, were the comparison option is selectable.
+<ul>
+For example, if three states are entered, only one has to match to satisfy the search criteria for the category <b>State</b>.
+</ul>
+<li>When multiple categories are requested, <b>every</b> category must have at least one match for that member to be selected.
+<ul>
+For example, if the categories <b>State</b> and <b>Last Name</b> are requested, there must be a match of at least one <b>State</b> entry <b>and</b> at least one <b>Last Name</b> entry to satisfy the search criteria.
+</ul>
+</ul>
+<a name="Inventory"><H2>Inventory and Order Form Documentation</H2></a>
+<hr>
+<h3><u>Inventory Maintenance</u></h3>
+
+<p>Inventory items are grouped by the Web page that has the item for sale. The Inventory Maintenance Menu will have an option for each Web page as well as an option to display a combined list of the inventory items for all the Web pages.</p>
+
+<p>Inventory Maintenance is a three step process.  Selecting the Web page "Go To" option on the menu will display the Inventory items for that Web page.  To review or update inventory, check mark the appropriate items and select the "Process..." option.  The details for each item selected will appear in an update form where changes can be made.  Leaving the Title blank will delete an item from the inventory list.  Changing the quantity of an item to zero will leave the item on the inventory list but the item will not appear on the Web page as an item for sale. Selecting the "Update" option will update the database with the changes. The "Return" option ignores the changes and returns to the selection page.  </p>
+
+<p>Selecting the "Add" option will bring up a blank form for entering new inventory items.  The blank form will reappear after each item is added.  Select the "Return" option to discontinue adding new items and return to the selection page.</p>
+
+<p>The items will appear on the Web page in the sequence displayed on the selection page.  The sequence can be changed by changing the "Seq" values and selecting the "Process..." option.  If a zero "Seq" is entered, the item will be removed from the inventory list.</p>
+
+<p>Once the changes have been completed, select the "View..." option to review the changes <b>before</b> they are applied to the Web page.  The view page will display the items exactly how they will appear on the actual Web page (minus the normal Web page text and graphics).  It is important that the view page looks exactly how it should when the Web page is updated and visible by the customers.  If not correct, select the "Return..." option to go back to the maintenance page.  If the view page is correct, select the "Apply..." option to update the Web page with the inventory items.</p>
+
+<p>Once the changes have been applied, the <b>actual</b> Web page will display with the updated inventory items.  At this point the new inventory items are available for your customers.</p>
+
+<hr>
+<a name="OrderForm"><h3><u>Order Form</u></h3></a>
+
+<p>There are two Order Form formats; an interactive format and a printable format.  The interactive format displays when a customer has selected the "Order" option on any of the pages built by the Inventory Maintenance function.  When the Order Form displays, it will be pre-filled with:</p>
+
+<ul>
+<li>Customer information (if previously entered by the Customer),</li>
+<li>Details of all items selected for purchase (quantity, code, description and price),</li>
+<li>Sales tax (if applicable)</li>
+<li>Shipping Cost (calculated based on the Organization's predefined algorithm), and</li>
+<li>Total order amount.</li>
+</ul>
+
+<p>The customer can modify any of the item quantities and select the "Re-Calculate" option to display the new totals.  Entering a zero quantity will remove the item from the Order Form. Items can only be added to the Order Form by selecting it on the Web page where it is listed for sale.</p>
+
+<p>If the "Continue Shopping" option is selected, the Customer will return to the previous Web page where the items were selected.  When the Customer returns to the Order Form, any additional items selected will be added to the Order Form with the previously selected items. If the customer decides not to process the Order Form, the selected items will remain on the Order Form for three days.</p>
+
+<p><b>Note:</b> Any pre-filling of the Order Form, either the Customer information or any selected items, is dependent on the Customer having the browser cookie option activated.</p>
+
+<p>The <b>Printable Format</b> option would be selected once the Customer has finished shopping and is ready to process the order.  This function will:</p>
+
+<ul>
+<li>Re-display the Order Form in a format that is suitable for printing (no background color, buttons or input fields, etc.).</li>
+<li>Clear the Customer's selected items cookie,</li>
+<li>Place the current date and next order number on the form for reference,</li>
+<li>Send an email to the "Order Department", detailing the Order Form information.</li>
+</ul>
+
+<p>This format would be printed by the Customer and mailed, along with the payment, to the address at the top of the form.</p>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</BODY>
+</HTML>
+

@@ -1,0 +1,20 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Log files
+*.log
+
+# Database files (if you don't want to commit the Access database)
+*.mdb
+
+# Cache files
+CacheOutFile.txt

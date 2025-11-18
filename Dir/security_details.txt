@@ -1,0 +1,34 @@
+SB:New [SB] Address Directory Profile
+[var1],
+<br><br>
+I have created the following account so you can access the web based <b>[var7] Address Directory</b>.
+<ul>
+<li><b>User Name</b>:&nbsp;&nbsp;[var2] </li>
+<li>&nbsp;&nbsp;&nbsp;<b>Password</b>:&nbsp;&nbsp;[var4]
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Email</b>:&nbsp;&nbsp;[var3]&nbsp;&nbsp;&nbsp;
+(This is a temporary password that will have to be changed at logon)</li>
+</ul>
+[var9]
+Besides displaying directory entries, your access level allows you to:<br>
+<ul><li>Add new entries,</li>
+<li>Modify current entries, or</li>
+<li>Delete entries you have added to the directory.</li></ul>
+[var9]
+Before accessing the <a href="http://[var6][var8]Directory.html">Address Directory</a>, please reviewed the <a href="http://[var6]Directory_Documentation.asp">documentation</a> for an overview of the available functions.
+<br><br>
+[var10]
+You can request new directory entries by either sending <a href="mailto:[var5]">me</a> a VCF file or using the new member request option on the Directory Menu.
+<br><br>
+To create a VCF file from Outlook:
+<ul><li>Find and highlight the entry in the Outlook address directory</li>
+<li>Right click the entry and select "Add to Personal Address Book"</li>
+<li>Make whatever changes you want to the following directory details:</li><ul>
+<li>Name (i.e. change Richard to Rick)Name (i.e. change Richard to Rick)</li>
+<li>Job Title (i.e. Contractor)Job Title (i.e. Contractor)</li>
+<li>Company (i.e. Case Partners)Company (i.e. Case Partners)</li>
+<li>Phone Numbers</li>
+<li>Email Address</li>
+<li>Notes (i.e. Formatter or Data Collection)Notes (i.e. Formatter or Data Collection)</li></ul>
+<li>After making any changes, select File->Save As->Type Format "VCard Files (*.VCF)"</li>
+<li>Close the personal address book entry without saving</li></ul></ul>
+[var10]

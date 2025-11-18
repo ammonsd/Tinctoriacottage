@@ -1,0 +1,125 @@
+================================================================================
+AWS S3 SETUP GUIDE FOR TINCTORIA COTTAGE WEBSITE
+================================================================================
+
+STEP 3: CONFIGURE S3 STATIC WEBSITE HOSTING
+--------------------------------------------
+
+1. Create S3 Bucket:
+   - Go to: https://s3.console.aws.amazon.com/s3/
+   - Click "Create bucket"
+   - Bucket name: Choose unique name (e.g., "tinctoriacottage-website")
+   - Region: Select your preferred region
+   - UNCHECK "Block all public access" 
+   - Click "Create bucket"
+
+2. Enable Static Website Hosting:
+   - Select your bucket
+   - Go to "Properties" tab
+   - Scroll to "Static website hosting" section
+   - Click "Edit"
+   - Select "Enable"
+   - Index document: index.html
+   - Error document: (optional) error.html or index.html
+   - Click "Save changes"
+   - **IMPORTANT**: Copy the "Bucket website endpoint" URL shown
+
+
+STEP 4: SET BUCKET PERMISSIONS AND POLICIES
+--------------------------------------------
+
+1. Configure Bucket Policy:
+   - Select your bucket
+   - Go to "Permissions" tab
+   - Scroll to "Bucket policy" section
+   - Click "Edit"
+   - Copy the JSON from "bucket-policy-tinctoriacottage.json" file
+   - **REPLACE** "YOUR-BUCKET-NAME" with your actual bucket name
+   - Click "Save changes"
+
+2. Verify Public Access Settings:
+   - In "Permissions" tab
+   - "Block public access" section should show:
+     * Block all public access: OFF
+     * Block public access to buckets and objects granted through 
+       new access control lists (ACLs): OFF
+     * Block public access to buckets and objects granted through 
+       any access control lists (ACLs): OFF
+     * Block public access to buckets and objects granted through 
+       new public bucket or access point policies: OFF
+     * Block public access to buckets and objects granted through 
+       any public bucket or access point policies: OFF
+
+
+UPLOADING YOUR FILES
+--------------------
+
+Option 1: Using AWS Console (Drag & Drop):
+   - Select your bucket
+   - Click "Upload" button
+   - Drag and drop these folders/files:
+     * All .html files (bookpg.html, creationpg.html, etc.)
+     * Graphics/ folder
+     * images/ folder
+     * includes/ folder (if needed for other files)
+     * Photos/ folder
+     * help/ folder
+     * New/ folder with its .html files
+     * eBay/ folder with paypal_payment_msg.html
+     * Any other assets (CSS, JS, etc.)
+   - Click "Upload"
+
+Option 2: Using AWS CLI:
+   Install AWS CLI first: https://aws.amazon.com/cli/
+   Then run (replace YOUR-BUCKET-NAME):
+   
+   aws s3 sync . s3://YOUR-BUCKET-NAME/ --exclude "*.shtml" --exclude "*.ssi" --exclude ".git/*" --exclude "Dir/*" --exclude "cgi-bin/*" --exclude "fpdb/*" --exclude "stats/*"
+
+
+UPDATING INTERNAL LINKS
+------------------------
+
+Before uploading, you need to update ALL .shtml references to .html:
+- This affects navigation links in your HTML files
+- I can help update these automatically
+- See the list of files that need updating in the next section
+
+
+TESTING YOUR SITE
+-----------------
+
+1. After upload, visit your bucket website endpoint URL
+2. Test all navigation links
+3. Check that images load correctly
+4. Test the MailTo popup windows
+
+
+OPTIONAL: CUSTOM DOMAIN SETUP
+------------------------------
+
+If you want to use www.tinctoriacottage.com instead of the S3 URL:
+
+1. Bucket name MUST match your domain (e.g., "www.tinctoriacottage.com")
+2. Configure DNS in Route 53 or your domain registrar
+3. Point to your S3 website endpoint
+4. Consider using CloudFront CDN for HTTPS support
+
+
+COST ESTIMATE
+-------------
+
+S3 costs are very low for static sites:
+- Storage: ~$0.023 per GB/month
+- Data transfer OUT: First 1GB free, then ~$0.09 per GB
+- GET requests: $0.0004 per 1,000 requests
+
+Estimated monthly cost for a small site: $1-5/month
+(Much cheaper than traditional web hosting!)
+
+
+NEED HELP?
+----------
+
+- AWS S3 Documentation: https://docs.aws.amazon.com/s3/
+- Static Website Hosting Guide: 
+  https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html

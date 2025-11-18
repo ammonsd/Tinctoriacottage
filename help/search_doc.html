@@ -1,0 +1,36 @@
+<h3 align="center">Product Search</h3>
+
+<p>The search will return every product that matches on at least one of the requested words. For example, searching on <b>car</b> would select products that contained the words "car", "carriage", "cargo" or "Caribbean".</p>
+
+<p><b>Advanced Search Options</b></p>
+
+<ul>
+<li>Use <b>quotations</b> to search on a phrase.  For example, the search request <b>"United States"</b> will select every product that contains the word "United" immediately followed by the word "States".</li>
+<li>The <b>Boolean</b> logic commands <b>AND</b> and <b>OR</b> can be used to more precisely control the search results. The commands are not case sensitive.  To use the word "and" or "or" as part of the search criteria, put them in a phrase within quotes ("Tom and Jerry").</li>
+<ul>
+<li><b>AND</b> requires an item to contain both terms to satisfy the search requirement. For example, <b>Black AND Lab</b> would require an item to contain both words before being selected.</li>
+<li><b>OR</b> requires an item to contain only one of the terms to satisfy the search requirement. This is the default operator.  That is, if two words or phrases are not separated by the words "AND" or "OR", the "OR" operator is assumed.  The requests <b>Black Lab</b> and <b>Black OR Lab</b> would produce the same search results.</li>
+<li><b>Parenthesis</b> can be used to group complex Boolean phrases. For example, <b>(Black AND Lab) OR (Golden AND Lab)</b>.</li>
+</ul>
+<li>Prefix a word or phrase with a <b>dash</b> to search for products that <b>do not</b> contain the requested criteria.</li>
+<ul>
+<li>The search request <b>United,-States</b> will select every product that contains the text "United" or does not contain the text "States"</li>
+<li>The search request <b>-"United States"</b> will select every product that does not contain the phrase "United States"</li>
+</ul>
+<li>An <b>asterisk</b> can be attached to a word or phrase to narrow the search results.</li>
+<ul>
+<li>The search request <b>United*</b> will select every product that begins with the text "United"</li>
+<li>The search request <b>*States</b> will select every product that ends with the text "States"</li>
+</ul>
+<li>The <b>underscore</b> can be used to match on single characters.</li>
+<ul>
+<li>The search request <b>"__ Good Hope Road"</b> would match on "10 Good Hope Road" and "15 Good Hope Road", but not "1 Good Hope Road" because the search pattern required <b>two</b> character matches, not one.</li>
+<li>The search request <b>*H__E*</b> would match on "Hope" or "Here" or "Hear" but not on "Hoe". </li>
+</ul>
+<li><b>Brackets</b> can be used with the asterisk option to specify a set of characters, where at least one must be matched for an item to be selected.</li>
+<ul>
+<li>The search request <b>[0123456789]*</b> will select every product that begins with a number.</li>
+<li>The search request <b>*[!?]</b> will select every product that ends with "!" or ends with "?".</li>
+</ul>
+</ul>
+

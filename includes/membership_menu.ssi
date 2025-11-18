@@ -1,0 +1,18 @@
+     <tr><td nowrap>
+     <form action="../cgi-bin/members_update.asp" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Add New Members</b>
+     </form>
+     <form action="../cgi-bin/members_sel.asp?P=L" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Membership Maintenance</b>
+     </form>
+     <form action="../cgi-bin/members_sel.asp?P=L&PRT=Y" method="POST">
+     <input type="Submit" value="Go To">
+     <b>List Members for Printing</b>
+     </form>
+     <form action="../cgi-bin/members_sel.asp?P=E" method="POST">
+     <input type="Submit" value="Go To">
+     <b>Send BroadCast eMail</b>
+     </form>
+     </td></tr>
