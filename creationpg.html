@@ -205,6 +205,17 @@ function GrpRestore(grp) {
     }
 }
 
+// Maintain URL display as /vintage-creations
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/vintage-creations") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/vintage-creations"
+        );
+    }
+});
+
 // stop hiding -->
 </script>
 

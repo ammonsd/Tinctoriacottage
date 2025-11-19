@@ -208,6 +208,17 @@ function GrpRestore(grp) {
     }
 }
 
+// Maintain URL display as /home
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/home") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/home"
+        );
+    }
+});
+
 // stop hiding -->
 </script>
 

@@ -205,6 +205,17 @@ function GrpRestore(grp) {
     }
 }
 
+// Maintain URL display as /books
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/books") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/books"
+        );
+    }
+});
+
 // stop hiding -->
 </script>
 

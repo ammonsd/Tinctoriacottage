@@ -205,6 +205,16 @@ function GrpRestore(grp) {
     }
 }
 
+// Maintain URL display as /handwovens
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/handwovens") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/handwovens"
+        );
+    }
+});
 // stop hiding -->
 </script>
 

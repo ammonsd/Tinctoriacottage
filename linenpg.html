@@ -205,6 +205,17 @@ function GrpRestore(grp) {
     }
 }
 
+// Maintain URL display as /vintage-linens
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/vintage-linens") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/vintage-linens"
+        );
+    }
+});
+
 // stop hiding -->
 </script>
 

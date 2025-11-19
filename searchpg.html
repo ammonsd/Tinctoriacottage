@@ -205,6 +205,17 @@ function GrpRestore(grp) {
     }
 }
 
+// Maintain URL display as /product-search
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/product-search") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/product-search"
+        );
+    }
+});
+
 // stop hiding -->
 </script>
 

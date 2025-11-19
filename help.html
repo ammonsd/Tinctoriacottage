@@ -2,6 +2,18 @@
 <HTML>
 <HEAD>
 <title>Visitor Registry Documentation</TITLE>
+   <script>
+   // Maintain URL display as /help 
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/help") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/linen"
+        );
+    }
+});   
+   </script>
 </HEAD>
 <body bgcolor="#C0C0C0" vlink="#0000FF">
 <a name="Registry"><H2>Visitor Registry Documentation</H2></a>

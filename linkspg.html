@@ -205,6 +205,17 @@ function GrpRestore(grp) {
     }
 }
 
+// Maintain URL display as /favorite-links
+document.addEventListener("DOMContentLoaded", function () {
+    if (globalThis.location.pathname !== "/favorite-links") {
+        globalThis.history.replaceState(
+            null,
+            null,
+            "/favorite-links"
+        );
+    }
+});
+
 // stop hiding -->
 </script>
 
