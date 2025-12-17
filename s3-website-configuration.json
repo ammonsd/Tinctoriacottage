@@ -1,0 +1,80 @@
+{
+    "IndexDocument": {
+        "Suffix": "index.html"
+    },
+    "ErrorDocument": {
+        "Key": "error.html"
+    },
+    "RoutingRules": [
+        {
+            "Condition": {
+                "KeyPrefixEquals": "books",
+                "HttpErrorCodeReturnedEquals": "404"
+            },
+            "Redirect": {
+                "ReplaceKeyWith": "bookpg.html",
+                "HttpRedirectCode": "301"
+            }
+        },
+        {
+            "Condition": {
+                "KeyPrefixEquals": "home",
+                "HttpErrorCodeReturnedEquals": "404"
+            },
+            "Redirect": {
+                "ReplaceKeyWith": "index.html",
+                "HttpRedirectCode": "301"
+            }
+        },
+        {
+            "Condition": {
+                "KeyPrefixEquals": "vintage-creations",
+                "HttpErrorCodeReturnedEquals": "404"
+            },
+            "Redirect": {
+                "ReplaceKeyWith": "creationpg.html",
+                "HttpRedirectCode": "301"
+            }
+        },
+        {
+            "Condition": {
+                "KeyPrefixEquals": "vintage-linens",
+                "HttpErrorCodeReturnedEquals": "404"
+            },
+            "Redirect": {
+                "ReplaceKeyWith": "linenpg.html",
+                "HttpRedirectCode": "301"
+            }
+        },
+        {
+            "Condition": {
+                "KeyPrefixEquals": "handwovens",
+                "HttpErrorCodeReturnedEquals": "404"
+            },
+            "Redirect": {
+                "ReplaceKeyWith": "wovenpg.html",
+                "HttpRedirectCode": "301"
+            }
+        },
+        {
+            "Condition": {
+                "KeyPrefixEquals": "search",
+                "HttpErrorCodeReturnedEquals": "404"
+            },
+            "Redirect": {
+                "ReplaceKeyWith": "searchpg.html",
+                "HttpRedirectCode": "301"
+            }
+        },
+        {
+            "Condition": {
+                "KeyPrefixEquals": "favorite-links",
+                "HttpErrorCodeReturnedEquals": "404"
+            },
+            "Redirect": {
+                "ReplaceKeyWith": "linkspg.html",
+                "HttpRedirectCode": "301"
+            }
+        }
+    ]
+}

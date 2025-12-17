@@ -205,13 +205,13 @@ function GrpRestore(grp) {
     }
 }
 
-// Maintain URL display as /product-search
+// Maintain URL display as /search
 document.addEventListener("DOMContentLoaded", function () {
-    if (globalThis.location.pathname !== "/product-search") {
+    if (globalThis.location.pathname !== "/search") {
         globalThis.history.replaceState(
             null,
             null,
-            "/product-search"
+            "/search"
         );
     }
 });
@@ -248,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </tr>
       <tr><!-- row 1 -->
         <td><a href="/index.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c1','graphics/nav5_r1_c1_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c1','graphics/nav5_r1_c1_F3.gif','graphics/nav5_r1_c1_F3.gif')" ><img name="nav5_r1_c1" src="graphics/nav5_r1_c1.gif" width="47" height="27" border="0"></a></td>
+        <td><a href="/bookpg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c2','graphics/nav5_r1_c2_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c2','graphics/nav5_r1_c2_F3.gif','graphics/nav5_r1_c2_F3.gif')" ><img name="nav5_r1_c2" src="graphics/nav5_r1_c2.gif" width="92" height="27" border="0"></a></td>
         <td><a href="/linenpg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c3','graphics/nav5_r1_c3_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c3','graphics/nav5_r1_c3_F3.gif','graphics/nav5_r1_c3_F3.gif')" ><img name="nav5_r1_c3" src="graphics/nav5_r1_c3.gif" width="95" height="27" border="0"></a></td>
         <td><a href="/creationpg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c4','graphics/nav5_r1_c4_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c4','graphics/nav5_r1_c4_F3.gif','graphics/nav5_r1_c4_F3.gif')" ><img name="nav5_r1_c4" src="graphics/nav5_r1_c4.gif" width="109" height="27" border="0"></a></td>
         <td><a href="/wovenpg.html" onMouseOut="GrpRestore('FwSimpleGroup');"  onMouseOver="GrpSwap('FwSimpleGroup','nav5_r1_c5','graphics/nav5_r1_c5_F2.gif')"  onClick="GrpDown('FwSimpleGroup','nav5_r1_c5','graphics/nav5_r1_c5_F3.gif','graphics/nav5_r1_c5_F3.gif')" ><img name="nav5_r1_c5" src="graphics/nav5_r1_c5.gif" width="86" height="27" border="0"></a></td>
